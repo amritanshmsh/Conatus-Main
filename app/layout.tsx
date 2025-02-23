@@ -2,10 +2,8 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "./provider";
-import EasterEggs  from "@/components/ui/easter-egg";
 import Preloader from "@/components/preloader";
 import ElasticCursor from "@/components/ui/ElasticCursor";
-import RealtimeCursor from "@/components/other_components/RealtimeCursor";
 import { siteMetadata } from './metadata'
 import Footer from "@/components/Footer";
 
@@ -89,10 +87,9 @@ export default function RootLayout({
         >
           {children}
           <Preloader>
-            <EasterEggs />
             <ElasticCursor/>
           </Preloader>
-          <RealtimeCursor />
+          
         </ThemeProvider>
         <Footer />
         

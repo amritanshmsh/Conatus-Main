@@ -30,7 +30,7 @@ const Footer = () => {
         bg-black-200 rounded-lg border border-black-300 transition hover:scale-110"
       >
         <a href={info.link} target="_blank" rel="noopener noreferrer">
-          <img src={info.img} alt={info.name} width={20} height={20} />
+          <img src={info.img} width={20} height={20} />
         </a>
       </div>
     ))}

@@ -4,7 +4,7 @@ import { Spotlight } from "./ui/Spotlight";
 import { TextGenerateEffect } from "./ui/TextGenerateEffect";
 import MagicButton from "./ui/MagicButton";
 import { FaBookOpen } from "react-icons/fa";
-import ScrollDownIcon from "./other_components/scroll-down-icon";
+import ScrollDownIcon from "./ui/scroll-down-icon";
 import Image from "next/image";
 import {
   Tooltip,
