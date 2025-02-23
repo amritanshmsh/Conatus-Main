@@ -89,10 +89,8 @@ export default function RootLayout({
           <Preloader>
             <ElasticCursor/>
           </Preloader>
-          
-        </ThemeProvider>
         <Footer />
-        
+        </ThemeProvider>
       </body>
     </html>
   );

@@ -4,7 +4,7 @@ import { Spotlight } from "@/components/ui/Spotlight";
 import { TextGenerateEffect } from "@/components/ui/TextGenerateEffect";
 import MagicButton from "@/components/ui/MagicButton";
 import { FaExternalLinkAlt } from "react-icons/fa";
-import ScrollDownIcon from "@/components/other_components/scroll-down-icon";
+import ScrollDownIcon from "@/components/ui/scroll-down-icon";
 
 const HeroEleven = () => {
   return (

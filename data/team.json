@@ -1,0 +1,77 @@
+[
+    {
+      "title": "The Catalyst",
+      "name": "Aryan Mehta",
+      "description": "Cultivates a thriving work environment. ",
+      "image": "/aryan.jpg",
+      "socials": {
+        "linkedin": "https://www.linkedin.com/in/aryan-mehta-217069201/",
+        "twitter": "https://x.com/the_aryanmehta?t=u5smJ183yBxwxEEkpeI3cw&s=08"
+      }
+    },
+    {
+      "title": "The Powerhouse",
+      "name": "Chaitanya Gupta",
+      "description": "The operational mastermind, driving us towards strategic goals.",
+      "image": "/chaitanya.jpg",
+      "socials": {
+        "linkedin": "https://www.linkedin.com/in/chaitanyagpt",
+        "twitter": "https://x.com/gupta_chanu"
+      }
+    },
+    {
+      "title": "The Digital Maestro",
+      "name": "Saksham Malhotra",
+      "description": "Bridges the gap between ideas and innovation.",
+      "image": "/saksham.png",
+      "socials": {
+        "github": "https://github.com/saksham-malhotra-27",
+        "linkedin": "https://www.linkedin.com/in/saksham-malhotra-27tech"
+      }
+    },
+    {
+      "title": "The Framework Fanatic",
+      "name": "Siddhant Bansal",
+      "description": "A devotee of frontend frameworks.",
+      "image": "/siddhant.jpg",
+      "socials": {
+        "linkedin": "https://www.linkedin.com/in/siddhant-bansal-8767b4314/"
+      }
+    },
+    {
+      "title": "The Pixel Pioneer",
+      "name": "Varun Singh",
+      "description": "The Pixel Magician, breathes life into designs.",
+      "image": "/varun.jpg",
+      "socials": {
+        "linkedin": "https://www.linkedin.com/in/varun-singh-09b0b42aa/"
+      }
+    },
+    {
+      "title": "The Visual Storyteller",
+      "name": "Shreya Pandey",
+      "description": "Curates the magic that brings our brand to life on Instagram.",
+      "image": "/shreya.jpg",
+      "socials": {
+        "linkedin": "https://www.linkedin.com/in/shreya-pandey-b92978319/"
+      }
+    },
+    {
+      "title": "The Tweet Maestro",
+      "name": "Vibhav Soam",
+      "description": "Conducts the symphony of our brand's voice on Twitter.",
+      "image": "/vibhav.jpg",
+      "socials": {
+        "linkedin": "https://www.linkedin.com/in/vibhav-soam-604284260/"
+      }
+    },
+    {
+      "title": "The Cinemagician",
+      "name": "Sami Siraj",
+      "description": "Creates visual masterpieces that capture the essence of our brand.",
+      "image": "/siraj.jpg",
+      "socials": {
+        "linkedin": "https://www.linkedin.com/in/sami-siraj-709b46293"
+      }
+    }
+]
