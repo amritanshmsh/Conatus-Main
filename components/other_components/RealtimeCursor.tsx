@@ -1,6 +1,5 @@
 "use client";
 import { useEffect, useState, useRef } from "react";
-import { supabase } from "@/utils/supabase";
 import { generateRandomCursor } from "@/lib/generate-random-cursor";
 import { motion, AnimatePresence } from "framer-motion";
 
@@ -46,45 +45,47 @@ export default function RealtimeCursor() {
     const lastKnownPosition = useRef({ x: 0, y: 0 });
     const messageTimeout = useRef<NodeJS.Timeout>();
 
-    const updateCursorPosition = async (x: number, y: number, typing = isTyping, msg = message) => {
-        // Always update last known position
+    const updateCursorPosition = (x: number, y: number, typing = isTyping, msg = message) => {
         lastKnownPosition.current = { x, y };
 
-        await supabase.from("cursors").upsert([{
-            user_id: userId,
-            x_position: x,
-            y_position: y,
-            color: cursorStyle.color,
-            is_typing: typing,
-            message: msg,
-            last_updated: new Date().toISOString()
-        }]);
+        setCursors(prev => ({
+            ...prev,
+            [userId]: {
+                id: userId,
+                user_id: userId,
+                x_position: x,
+                y_position: y,
+                color: cursorStyle.color,
+                is_typing: typing,
+                message: msg,
+                last_updated: new Date().toISOString()
+            }
+        }));
     };
 
     useEffect(() => {
         if (typeof window !== "undefined") localStorage.setItem("user_id", userId);
 
-        const handleMouseMove = async (e: MouseEvent) => {
-            await updateCursorPosition(e.pageX, e.pageY, isTyping, message);
+        const handleMouseMove = (e: MouseEvent) => {
+            updateCursorPosition(e.pageX, e.pageY, isTyping, message);
         };
 
-        const handleKeyDown = async (e: KeyboardEvent) => {
+        const handleKeyDown = (e: KeyboardEvent) => {
             if (e.key === 'Enter') {
                 if (isTyping && message) {
                     if (messageTimeout.current) {
                         clearTimeout(messageTimeout.current);
                     }
 
-                    // Send message without floating animation for sender
-                    await updateCursorPosition(
+                    updateCursorPosition(
                         lastKnownPosition.current.x,
                         lastKnownPosition.current.y,
-                        false, // Set to false so other users see it as a sent message
+                        false,
                         message
                     );
-                    
-                    messageTimeout.current = setTimeout(async () => {
-                        await updateCursorPosition(
+
+                    messageTimeout.current = setTimeout(() => {
+                        updateCursorPosition(
                             lastKnownPosition.current.x,
                             lastKnownPosition.current.y,
                             false,
@@ -95,7 +96,7 @@ export default function RealtimeCursor() {
                     }, 5000);
                 } else {
                     setIsTyping(true);
-                    await updateCursorPosition(
+                    updateCursorPosition(
                         lastKnownPosition.current.x,
                         lastKnownPosition.current.y,
                         true,
@@ -108,7 +109,7 @@ export default function RealtimeCursor() {
                 }
                 setIsTyping(false);
                 setMessage("");
-                await updateCursorPosition(
+                updateCursorPosition(
                     lastKnownPosition.current.x,
                     lastKnownPosition.current.y,
                     false,
@@ -120,41 +121,18 @@ export default function RealtimeCursor() {
         document.addEventListener("mousemove", handleMouseMove);
         document.addEventListener("keydown", handleKeyDown);
 
-        const subscription = supabase
-            .channel("cursors")
-            .on("postgres_changes", { event: "*", schema: "public", table: "cursors" }, (payload: any) => {
-                if (payload.new.user_id !== userId) {
-                    const prevMessage = cursors[payload.new.user_id]?.message || '';
-                    const newMessage = payload.new.message || '';
-                    
-                    // Show floating message if there's a new non-empty message and it's not a typing update
-                    if (newMessage && newMessage !== prevMessage && !payload.new.is_typing) {
-                        const messageId = Date.now().toString();
-                        setFloatingMessages(prev => [...prev, { id: messageId, message: newMessage }]);
-                        
-                        setTimeout(() => {
-                            setFloatingMessages(prev => prev.filter(msg => msg.id !== messageId));
-                        }, 5000);
-                    }
-
-                    setCursors((prev) => ({ ...prev, [payload.new.user_id]: payload.new }));
-                }
-            })
-            .subscribe();
-
         return () => {
             document.removeEventListener("mousemove", handleMouseMove);
             document.removeEventListener("keydown", handleKeyDown);
-            subscription.unsubscribe();
             if (messageTimeout.current) {
                 clearTimeout(messageTimeout.current);
             }
         };
     }, [userId, cursorStyle, isTyping, message]);
 
-    const handleMessageUpdate = async (newMessage: string) => {
+    const handleMessageUpdate = (newMessage: string) => {
         setMessage(newMessage);
-        await updateCursorPosition(
+        updateCursorPosition(
             lastKnownPosition.current.x,
             lastKnownPosition.current.y,
             true,
