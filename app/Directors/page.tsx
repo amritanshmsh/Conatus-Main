@@ -1,4 +1,4 @@
-'use client';
+"use client";
 
 import React from 'react';
 import { AiFillLinkedin } from 'react-icons/ai';
@@ -30,37 +30,39 @@ const foundersData: Founder[] = [
     socials: {
       linkedin: 'https://www.linkedin.com/in/amritanshmsh',
     },
-    message: 'In today&rsquo;s rapidly changing world, it is essential to have a clear vision and a strong strategic approach to achieve success. As an architect of our company&rsquo;s growth, my focus has always been on building a strong foundation that supports innovation, creativity, and sustainable development. My goal is to steer our organization towards long-term success by aligning our strategies with our mission and values. I believe that through collaboration, innovation, and a steadfast commitment to our goals, we can overcome any challenges and create a future where education is accessible, effective, and transformative for all.',
+    message: 'In today’s rapidly changing world, it is essential to have a clear vision and a strong strategic approach to achieve success. As an architect of our company’s growth, my focus has always been on building a strong foundation that supports innovation, creativity, and sustainable development. My goal is to steer our organization towards long-term success by aligning our strategies with our mission and values. I believe that through collaboration, innovation, and a steadfast commitment to our goals, we can overcome any challenges and create a future where education is accessible, effective, and transformative for all.',
   },
 ];
 
 const FoundersMessage: React.FC = () => {
   return (
-    <div className="container mx-auto py-12 px-6">
-      <h1 className="text-3xl md:text-5xl font-bold text-center mb-12">
-       Director's Message
+    <div className="bg-[#010319] text-white min-h-screen flex flex-col items-center py-16 px-4 md:px-8 lg:px-12">
+      <h1 className="text-3xl md:text-5xl font-extrabold text-center mb-12">
+        Meet Our <span className="text-purple">Directors ✨</span>
       </h1>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+      <div className="flex flex-col md:flex-row justify-center items-stretch gap-8 w-full max-w-7xl px-4">
         {foundersData.map((founder, index) => (
-          <div key={index} className="bg-white shadow-lg rounded-lg overflow-hidden">
+          <div key={index} className="bg-purple-800 shadow-xl rounded-xl overflow-hidden p-6 transform transition-all hover:scale-105 w-full max-w-[90%] sm:max-w-[80%] md:max-w-[50%] lg:max-w-[45%] xl:max-w-[40%] text-center border-2 border-purple-500 flex flex-col h-full">
             <img 
               src={founder.image} 
               alt={founder.name} 
-              className="w-full h-64 object-cover"
+              className="w-full h-72 object-cover rounded-t-xl border-b-4 border-purple-500"
             />
-            <div className="p-6">
-              <h2 className="text-2xl text-black font-bold mb-2">{founder.name}</h2>
-              <p className="text-gray-600 mb-2">{founder.title}</p>
-              <p className="text-gray-700 mb-4">{founder.message}</p>
-              <a 
-                href={founder.socials.linkedin} 
-                target="_blank" 
-                rel="noopener noreferrer" 
-                className="flex items-center text-blue-500 hover:underline"
-              >
-                <AiFillLinkedin size={24} className="mr-2" />
-                LinkedIn
-              </a>
+            <div className="p-4 flex flex-col flex-grow">
+              <h2 className="text-2xl md:text-3xl font-bold mb-2 text-white">{founder.name}</h2>
+              <p className="text-md md:text-lg text-gray-300 mb-4">{founder.title}</p>
+              <p className="text-white text-sm md:text-base leading-relaxed mb-6 flex-grow">{founder.message}</p>
+              <div className="mt-auto">
+                <a 
+                  href={founder.socials.linkedin} 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  className="flex justify-center items-center text-white hover:text-gray-300 transition text-md md:text-lg font-semibold"
+                >
+                  <AiFillLinkedin size={28} className="mr-2" />
+                  Connect on LinkedIn
+                </a>
+              </div>
             </div>
           </div>
         ))}
