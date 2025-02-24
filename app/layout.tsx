@@ -6,6 +6,7 @@ import Preloader from "@/components/preloader";
 import ElasticCursor from "@/components/ui/ElasticCursor";
 import { siteMetadata } from './metadata'
 import Footer from "@/components/Footer";
+import Navbar from "@/components/Navbar";
 
 
 const geistSans = Geist({
@@ -85,6 +86,7 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
+
           {children}
           <Preloader>
             <ElasticCursor/>
