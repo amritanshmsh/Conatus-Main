@@ -32,20 +32,37 @@ const Hero = () => {
         <div className="absolute pointer-events-none inset-0 flex items-center justify-center dark:bg-black-100 bg-white [mask-image:radial-gradient(ellipse_at_center,transparent_20%,black)]" />
       </div>
 
-      {/* Logo at Pointer Location */}
-      <div className="absolute top-[15%] md:top-[25%] left-[50%] transform -translate-x-1/2 -translate-y-1/2">
+      <div
+        className="
+          absolute 
+          top-[30%]        /* default for small screens */
+          sm:top-[25%]      /* screens >= 640px */
+          md:top-[20%]      /* screens >= 768px */
+          lg:top-[22%]      /* screens >= 1024px */
+          left-1/2 
+          transform 
+          -translate-x-1/2 
+          -translate-y-1/2
+        "
+      >
         <Image
-          src="/logo.png" // Replace with your actual logo path
+          src="/logo.png"
           alt="Conatus Bharat Logo"
-          width={300} // Adjust size as needed
-          height={80}
-          className="drop-shadow-lg"
+          // Adjust these base width/height if needed
+          width={300}
+          height={60}
+          // Optional: Use responsive width classes for further control
+          className="
+            drop-shadow-lg
+            w-[200px]       /* default for small screens */
+            sm:w-[250px]    /* screens >= 640px */
+            md:w-[300px]    /* screens >= 768px */
+            lg:w-[350px]    /* screens >= 1024px */
+          "
         />
       </div>
-
       <div className="flex justify-center my-20 relative z-10">
         <div className="max-w-[89vw] md:max-w-2xl lg:max-w-[60vw] flex flex-col items-center justify-center">
-          
           <h2 className="uppercase tracking-widest text-xs text-center text-blue-100 max-w-80">
             Conatus Bharat Education Pvt. Ltd.
           </h2>
@@ -70,7 +87,8 @@ const Hero = () => {
                 side="top"
                 className="bg-black-100 border border-white/[0.2] text-white shadow-xl"
               >
-                Revolutionizing education with AI-driven learning and personalized assessments.
+                Revolutionizing education with AI-driven learning and
+                personalized assessments.
               </TooltipContent>
             </Tooltip>
           </TooltipProvider>
@@ -79,7 +97,7 @@ const Hero = () => {
 
       {/* Scroll Down Icon - Placed at the bottom of the section */}
       <div className="absolute bottom-10 flex justify-center w-full">
-        <ScrollDownIcon/>
+        <ScrollDownIcon />
       </div>
     </div>
   );

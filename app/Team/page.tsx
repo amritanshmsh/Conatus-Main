@@ -1,18 +1,29 @@
 "use client";
+import Link from "next/link";
 import { PinContainer } from "@/components/ui/Tdpin";
 import { AiFillLinkedin, AiFillGithub } from "react-icons/ai";
-import { FaXTwitter } from "react-icons/fa6";
+import { FaXTwitter, FaArrowLeft } from "react-icons/fa6";
 import Image from "next/image";
 import teamData from "@/data/team.json";
 
 function Team() {
   return (
-    <div className="bg-[#010319] text-white py-16 px-6 md:px-12 mb-10 flex flex-col items-center max-height: auto;">
+    <div className="bg-[#010319] text-white py-16 px-6 md:px-12 mb-10 flex flex-col items-center">
+      {/* Back Button */}
+      <div className="w-full max-w-4xl mb-8">
+        <Link href="/">
+          <button className="flex items-center gap-2 text-white px-4 py-2 bg-purple-600 rounded-md shadow-md hover:bg-purple-700 transition">
+            <FaArrowLeft size={18} />
+            <span>Back</span>
+          </button>
+        </Link>
+      </div>
+
       {/* Team Section Title with Extra Spacing */}
       <div id="team" className="text-center mt-20 mb-16">
-      <h2 className="text-4xl md:text-5xl font-extrabold text-center text-white mb-10">
-        Meet the <span className="text-purple">Team ✨ </span> 
-      </h2>
+        <h2 className="text-4xl md:text-5xl font-extrabold text-center text-white mb-10">
+          Meet the <span className="text-purple-400">Team ✨</span>
+        </h2>
       </div>
 
       {/* Team Grid */}
@@ -31,8 +42,12 @@ function Team() {
               </div>
 
               {/* Member Name & Role */}
-              <h3 className="mt-5 text-lg md:text-xl font-semibold">{member.name}</h3>
-              <p className="text-sm text-gray-400 text-center px-4">{member.description}</p>
+              <h3 className="mt-5 text-lg md:text-xl font-semibold">
+                {member.name}
+              </h3>
+              <p className="text-sm text-gray-400 text-center px-4">
+                {member.description}
+              </p>
 
               {/* Social Icons */}
               <div className="flex mt-4 space-x-4">

@@ -1,11 +1,23 @@
 "use client";
-import mentorsData from '@/data/mentors.json';
+import mentorsData from "@/data/mentors.json";
 import NextImage from "next/image";
-import { AiFillLinkedin } from 'react-icons/ai';
+import Link from "next/link";
+import { AiFillLinkedin } from "react-icons/ai";
+import { FaArrowLeft } from "react-icons/fa6";
 
 function Mentor() {
   return (
     <div className="bg-[#010319] text-white min-h-screen flex flex-col items-center py-24 px-6 md:px-12">
+      {/* Back Button */}
+      <div className="w-full max-w-7xl mb-8">
+        <Link href="/">
+          <button className="flex items-center gap-2 text-white px-4 py-2 bg-purple-600 rounded-md shadow-md hover:bg-purple-700 transition">
+            <FaArrowLeft size={18} />
+            <span>Back</span>
+          </button>
+        </Link>
+      </div>
+
       {/* Mentor Section Title */}
       <div id="mentor" className="text-center mb-16">
         <h2 className="text-4xl md:text-5xl font-extrabold text-white mb-10">
@@ -32,8 +44,12 @@ function Mentor() {
             </div>
 
             {/* Mentor Name & Role */}
-            <h3 className="mt-5 text-lg md:text-xl font-semibold">{mentor.name}</h3>
-            <p className="text-sm text-gray-400 text-center px-4">{mentor.post}</p>
+            <h3 className="mt-5 text-lg md:text-xl font-semibold">
+              {mentor.name}
+            </h3>
+            <p className="text-sm text-gray-400 text-center px-4">
+              {mentor.post}
+            </p>
 
             {/* Mentor Description */}
             <p className="font-normal text-sm text-gray-300 text-center my-4">
