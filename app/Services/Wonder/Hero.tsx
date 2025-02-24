@@ -3,7 +3,7 @@ import { Spotlight } from "@/components/ui/Spotlight";
 import { TextGenerateEffect } from "@/components/ui/TextGenerateEffect";
 import MagicButton from "@/components/ui/MagicButton";
 import { FaLocationArrow } from "react-icons/fa6";
-import ScrollDownIcon from "@/components/other_components/scroll-down-icon";
+import ScrollDownIcon from "../../../components/ui/scroll-down-icon";
 
 const HeroWonder = () => {
   return (
@@ -34,16 +34,25 @@ const HeroWonder = () => {
             className="text-center text-[40px] md:text-5xl lg:text-6xl"
             words="Wonder - Unlocking Every Child’s Potential"
           />
-          
+
           <div className="text-center space-y-4 mt-6 mb-8">
             <p className="text-sm md:text-lg lg:text-xl text-gray-300">
-              A personalized learning experience designed to nurture strengths, empower students, and transform education.
+              A personalized learning experience designed to nurture strengths,
+              empower students, and transform education.
             </p>
             <div className="flex flex-wrap gap-3 justify-center text-sm">
-              <span className="px-3 py-1 bg-blue-500/20 rounded-full">AI-Powered Insights</span>
-              <span className="px-3 py-1 bg-blue-500/20 rounded-full">Gamified Learning</span>
-              <span className="px-3 py-1 bg-blue-500/20 rounded-full">Skill-Based Reports</span>
-              <span className="px-3 py-1 bg-blue-500/20 rounded-full">Personalized Pathways</span>
+              <span className="px-3 py-1 bg-blue-500/20 rounded-full">
+                AI-Powered Insights
+              </span>
+              <span className="px-3 py-1 bg-blue-500/20 rounded-full">
+                Gamified Learning
+              </span>
+              <span className="px-3 py-1 bg-blue-500/20 rounded-full">
+                Skill-Based Reports
+              </span>
+              <span className="px-3 py-1 bg-blue-500/20 rounded-full">
+                Personalized Pathways
+              </span>
             </div>
           </div>
 
