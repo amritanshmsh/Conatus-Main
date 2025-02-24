@@ -114,3 +114,7 @@
     animation: rainbow-text 3s linear infinite;
     background-size: 200% auto;
 }
+
+body {
+  @apply bg-[#010319] text-white;
+}
