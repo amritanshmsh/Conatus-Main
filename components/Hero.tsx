@@ -75,7 +75,7 @@ const Hero = () => {
           <TooltipProvider>
             <Tooltip>
               <TooltipTrigger asChild>
-                <a href="/about" target="_blank" rel="noopener noreferrer">
+                <a href="/Aboutus" rel="noopener noreferrer">
                   <MagicButton
                     title="Learn More"
                     icon={<FaBookOpen />}

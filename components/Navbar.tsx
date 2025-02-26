@@ -101,7 +101,7 @@ const HamburgerMenu = () => {
                 {dropdownOpen && (
                   <div className="mt-2 bg-[#2D2E5A] rounded-lg shadow-md overflow-hidden text-base">
                     <Link
-                      href="/directors"
+                      href="/Directors"
                       className="block py-2 px-4 text-gray-200 relative overflow-hidden
                                  hover:bg-purple-700/30 transition-colors
                                  after:absolute after:left-0 after:bottom-0 after:h-[2px] after:w-0
